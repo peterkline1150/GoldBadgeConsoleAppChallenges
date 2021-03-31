@@ -25,9 +25,16 @@ namespace GoldBadgeConsoleAppChallenges
             Ingredients = ingredients;
             Price = price;
         }
-        public void AddIngredientsToList(string ingredient)
+        public bool AddIngredientsToList(string ingredient)
         {
+            int count = Ingredients.Count;
             Ingredients.Add(ingredient);
+
+            if (count < Ingredients.Count)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

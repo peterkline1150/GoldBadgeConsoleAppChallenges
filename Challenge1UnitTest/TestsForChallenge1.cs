@@ -48,5 +48,14 @@ namespace Challenge1UnitTest
             //Assert
             Assert.IsTrue(wasRemoved);
         }
+        [TestMethod]
+        public void TestingAddIngredientMethod_ShouldReturnTrue()
+        {
+            //Act
+            bool shouldAddIngredient = menuItem.AddIngredientsToList("Potato");
+
+            //Assert
+            Assert.IsTrue(shouldAddIngredient);
+        }
     }
 }
