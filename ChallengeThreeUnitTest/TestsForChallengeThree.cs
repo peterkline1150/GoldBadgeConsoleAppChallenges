@@ -56,7 +56,13 @@ namespace ChallengeThreeUnitTest
         public void TestingUpdateBadgeMethod_ShouldReturnTrue()
         {
             //Arrange
-            Badge newBadge = new Badge(22345, new List<string>() { "A7, B5"});
+            Badge oldBadge = new Badge(12345, new List<string>() { "A3, B2"});
+            _badgeRepo.CreateNewBadge(oldBadge);
+
+            Badge newBadge = new Badge
+            {
+                DoorNames = new List<string>() { "A2, B5" }
+            };
 
             //Act
             bool updateTrue = _badgeRepo.UpdateBadge(12345, newBadge);
