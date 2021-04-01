@@ -83,9 +83,9 @@ namespace ChallengeFiveConsole
             Console.Clear();
 
             Customer customerToUpdate = new Customer();
-            Console.WriteLine("Enter the First Name of the customer you want to update:");
+            Console.Write("Enter the First Name of the customer you want to update: ");
             customerToUpdate.FirstName = Console.ReadLine();
-            Console.WriteLine("\nEnter the Last Name of the customer you want to update:");
+            Console.Write("\nEnter the Last Name of the customer you want to update: ");
             customerToUpdate.LastName = Console.ReadLine();
 
             bool keepAsking;
@@ -174,9 +174,9 @@ namespace ChallengeFiveConsole
         {
             Customer newCustomer = new Customer();
 
-            Console.WriteLine("Enter the customer's First Name:");
+            Console.Write("Enter the customer's First Name: ");
             newCustomer.FirstName = Console.ReadLine();
-            Console.WriteLine("\nEnter the customer's Last Name:");
+            Console.Write("\nEnter the customer's Last Name: ");
             newCustomer.LastName = Console.ReadLine();
 
             bool keepAsking;

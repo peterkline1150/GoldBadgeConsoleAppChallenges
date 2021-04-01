@@ -53,7 +53,7 @@ namespace ChallengeSevenConsole
         private void DeleteParty()
         {
             Console.Clear();
-            Console.WriteLine("Enter the date of the party that you want to delete: (m/d/yy)");
+            Console.Write("Enter the date of the party that you want to delete (m/d/yy): ");
             DateTime date = DateTime.Parse(Console.ReadLine());
 
             Party partyToRemove = _partyRepo.FindPartyByDate(date);
@@ -72,40 +72,40 @@ namespace ChallengeSevenConsole
         {
             Console.Clear();
             Party newParty = new Party();
-            Console.WriteLine("What was the date of the party? (m/d/yy)");
+            Console.Write("What was the date of the party? (m/d/yy) ");
             newParty.DateOfEvent = DateTime.Parse(Console.ReadLine());
             Console.WriteLine("\nWe will start with the Burger Booth.\n\n");
 
-            Console.WriteLine("How many people ate a Veggie Burger?");
+            Console.Write("How many people ate a Veggie Burger? ");
             newParty.BurgerBooth.NumberOfVeggieBurgers = int.Parse(Console.ReadLine());
-            Console.WriteLine("How many people ate a Normal Burger?");
+            Console.Write("How many people ate a Normal Burger? ");
             newParty.BurgerBooth.NumberOfBurgers = int.Parse(Console.ReadLine());
-            Console.WriteLine("How many people ate a Hot Dog?");
+            Console.Write("How many people ate a Hot Dog? ");
             newParty.BurgerBooth.NumberOfHotdogs = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("\nPlease enter the price per unit of the following items:\n" +
-                "Veggie Burger (including bun):");
+            Console.Write("\nPlease enter the price per unit of the following items:\n" +
+                "Veggie Burger (including bun): $");
             newParty.BurgerBooth.PricePerVeggieBurger = double.Parse(Console.ReadLine());
-            Console.WriteLine("Normal Burger (including bun):");
+            Console.Write("Normal Burger (including bun): $");
             newParty.BurgerBooth.PricePerBurger = double.Parse(Console.ReadLine());
-            Console.WriteLine("Hot Dog (including bun):");
+            Console.Write("Hot Dog (including bun): $");
             newParty.BurgerBooth.PricePerHotDog = double.Parse(Console.ReadLine());
-            Console.WriteLine("\nWhat was the lump sum of everything else? (napkins, utensils, etc.)");
+            Console.Write("\nWhat was the lump sum of everything else? (napkins, utensils, etc.) $");
             newParty.BurgerBooth.LumpSum = double.Parse(Console.ReadLine());
 
             Console.Clear();
             Console.WriteLine("Next, we will focus on the Treat Booth.\n");
-            Console.WriteLine("How many people ate an Ice Cream Cone?");
+            Console.Write("How many people ate an Ice Cream Cone? ");
             newParty.TreatBooth.NumberOfIceCreamCones = int.Parse(Console.ReadLine());
-            Console.WriteLine("How many people ate Popcorn?");
+            Console.Write("How many people ate Popcorn? ");
             newParty.TreatBooth.NumberOfPopcorn = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("\nPlease enter the price per unit of the following items:\n" +
-                "Ice cream scoop:");
+            Console.Write("\nPlease enter the price per unit of the following items:\n" +
+                "Ice cream scoop: $");
             newParty.TreatBooth.PricePerCone = double.Parse(Console.ReadLine());
-            Console.WriteLine("Popcorn:");
+            Console.Write("Popcorn: $");
             newParty.TreatBooth.PricePerPopcorn = double.Parse(Console.ReadLine());
-            Console.WriteLine("\nWhat was the lump sum of everything else? (napkins, bowls, cones, etc.)");
+            Console.Write("\nWhat was the lump sum of everything else? (napkins, bowls, cones, etc.) $");
             newParty.TreatBooth.LumpSum = double.Parse(Console.ReadLine());
 
             Console.Clear();
@@ -117,7 +117,7 @@ namespace ChallengeSevenConsole
                 $"Total cost of the Burger Booth: ${newParty.BurgerBooth.TotalCost:0.00}\n");
             Console.WriteLine($"Total cost of a bag of popcorn: ${newParty.TreatBooth.CostOfPopcornBag:0.00}\n" +
                 $"Total cost per gallon of ice cream: ${newParty.TreatBooth.CostOfGallonOfIceCream:0.00}\n" +
-                $"Total cost of the Treat Booth: ${newParty.TreatBooth.TotalMoney}\n");
+                $"Total cost of the Treat Booth: ${newParty.TreatBooth.TotalMoney:0.00}\n");
 
             _partyRepo.CreateParty(newParty);
             PressAnyKey();
@@ -144,25 +144,6 @@ namespace ChallengeSevenConsole
                     $"{party.TotalPeopleAtParty}\n"));
             }
             PressAnyKey();
-        }
-
-        private void GetTreatBoothInfo()
-        {
-            Console.Clear();
-
-            TreatBooth iceCreamBooth = new TreatBooth();
-            Console.WriteLine("How many people ate an Ice Cream Cone?");
-            iceCreamBooth.NumberOfIceCreamCones = int.Parse(Console.ReadLine());
-            Console.WriteLine("How many people ate Popcorn?");
-            iceCreamBooth.NumberOfPopcorn = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("\nPlease enter the price per unit of the following items:\n" +
-                "Ice cream scoop:");
-            iceCreamBooth.PricePerCone = double.Parse(Console.ReadLine());
-            Console.WriteLine("Popcorn:");
-            iceCreamBooth.PricePerPopcorn = double.Parse(Console.ReadLine());
-            Console.WriteLine("\nWhat was the lump sum of everything else? (napkins, bowls, cones, etc.)");
-            iceCreamBooth.LumpSum = double.Parse(Console.ReadLine());
         }
 
         private void PressAnyKey()

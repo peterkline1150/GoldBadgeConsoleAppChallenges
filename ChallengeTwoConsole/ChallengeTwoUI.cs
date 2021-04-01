@@ -134,9 +134,9 @@ namespace ChallengeTwoConsole
             Console.Clear();
             Claim newClaim = new Claim();
 
-            Console.WriteLine("Enter the claim id: ");
+            Console.Write("Enter the claim id: ");
             newClaim.ClaimID = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the claim type: ");
+            Console.Write("Enter the claim type: ");
             string claimType = Console.ReadLine().ToLower();
             if (claimType == "car")
             {
@@ -156,13 +156,13 @@ namespace ChallengeTwoConsole
                 PressAnyKey();
                 return;
             }
-            Console.WriteLine("Enter a claim description: ");
+            Console.Write("Enter a claim description: ");
             newClaim.Description = Console.ReadLine();
-            Console.WriteLine("Amount of Damage: ");
+            Console.Write("Amount of Damage: $");
             newClaim.ClaimAmount = double.Parse(Console.ReadLine());
-            Console.WriteLine("Date of Accident: ");
+            Console.Write("Date of Accident: ");
             newClaim.DateOfIncident = DateTime.Parse(Console.ReadLine());
-            Console.WriteLine("Date of Claim: ");
+            Console.Write("Date of Claim: ");
             newClaim.DateOfClaim = DateTime.Parse(Console.ReadLine());
             if (newClaim.IsValid == true)
             {

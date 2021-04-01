@@ -66,35 +66,42 @@ namespace ChallengeThreeConsole
         private void RemoveAllDoors()
         {
             Console.Clear();
-            Console.WriteLine("What is the badge number to remove doors from?");
+            Console.Write("What is the badge number to remove doors from? ");
             int badgeNumber = int.Parse(Console.ReadLine());
 
             Badge badgeToRemoveDoorsFrom = _badgeRepo.GetBadgeByBadgeID(badgeNumber);
 
-            foreach (string door in badgeToRemoveDoorsFrom.DoorNames.ToList())
+            if (badgeToRemoveDoorsFrom != null)
             {
-                badgeToRemoveDoorsFrom.RemoveDoor(door);
-            }
+                foreach (string door in badgeToRemoveDoorsFrom.DoorNames.ToList())
+                {
+                    badgeToRemoveDoorsFrom.RemoveDoor(door);
+                }
 
-            Console.WriteLine($"\nAll doors have been removed from {badgeToRemoveDoorsFrom.BadgeID}.\n");
+                Console.WriteLine($"\nAll doors have been removed from {badgeToRemoveDoorsFrom.BadgeID}.\n");
+            }
+            else
+            {
+                Console.WriteLine("Incorrect badge number. Returning to main menu.\n");
+            }
             PressAnyKey();
         }
 
         private void RemoveBadgeFromDictionary()
         {
             Console.Clear();
-            Console.WriteLine("What is the badge number to delete?");
+            Console.Write("What is the badge number to delete? ");
             int badgeNumber = int.Parse(Console.ReadLine());
 
             Badge badgeToDelete = _badgeRepo.GetBadgeByBadgeID(badgeNumber);
 
-            if (_badgeRepo.DeleteBadge(badgeToDelete))
+            if (badgeToDelete != null && _badgeRepo.DeleteBadge(badgeToDelete))
             {
                 Console.WriteLine($"{badgeToDelete.BadgeID} has been successfully deleted.\n");
             }
             else
             {
-                Console.WriteLine("Something went wrong. Returning to main menu.\n");
+                Console.WriteLine("Could not delete badge. Returning to main menu.\n");
             }
             PressAnyKey();
         }
@@ -125,13 +132,13 @@ namespace ChallengeThreeConsole
             Console.Clear();
             Badge badgeToAdd = new Badge();
 
-            Console.WriteLine("What is the number on the Badge:");
+            Console.Write("What is the number on the Badge: ");
             badgeToAdd.BadgeID = int.Parse(Console.ReadLine());
 
             bool continueAddingDoors = true;
             while (continueAddingDoors)
             {
-                Console.WriteLine("List a door that it needs access to:");
+                Console.Write("List a door that it needs access to: ");
                 string doorToAdd = Console.ReadLine();
                 badgeToAdd.AddDoor(doorToAdd);
 
@@ -142,7 +149,7 @@ namespace ChallengeThreeConsole
                     case "y":
                         break;
                     case "n":
-                        Console.WriteLine("Returning to main menu.\n");
+                        Console.WriteLine("Done adding doors. Returning to main menu.\n");
                         continueAddingDoors = false;
                         break;
                     default:
@@ -158,36 +165,42 @@ namespace ChallengeThreeConsole
         private void EditBadge()
         {
             Console.Clear();
-            Console.WriteLine("What is the badge number to update?");
+            Console.Write("What is the badge number to update? ");
             int badgeNumber = int.Parse(Console.ReadLine());
 
             Badge badgeToUpdate = _badgeRepo.GetBadgeByBadgeID(badgeNumber);
-
-            DisplayDoors(badgeToUpdate);
-
-            Console.WriteLine("What would you like to do?\n\n" +
-                "1. Remove a door\n" +
-                "2. Add a door");
-            string choice = Console.ReadLine();
-
-            switch (choice)
+            if (badgeToUpdate != null)
             {
-                case "1":
-                    RemoveDoorFromBadge(badgeToUpdate);
-                    break;
-                case "2":
-                    AddDoorToBadge(badgeToUpdate);
-                    break;
-                default:
-                    Console.WriteLine("Invalid input. Returning to main menu.\n");
-                    break;
+                DisplayDoors(badgeToUpdate);
+
+                Console.WriteLine("What would you like to do?\n\n" +
+                    "1. Remove a door\n" +
+                    "2. Add a door");
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        RemoveDoorFromBadge(badgeToUpdate);
+                        break;
+                    case "2":
+                        AddDoorToBadge(badgeToUpdate);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input. Returning to main menu.\n");
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("That badge does not exist. Returning to main menu.\n");
             }
             PressAnyKey();
         }
 
         private void RemoveDoorFromBadge(Badge badgeToRemoveFrom)
         {
-            Console.WriteLine("Which door would you like to remove?");
+            Console.Write("Which door would you like to remove? ");
             string doorToRemove = Console.ReadLine();
 
             badgeToRemoveFrom.RemoveDoor(doorToRemove);
@@ -199,7 +212,7 @@ namespace ChallengeThreeConsole
 
         private void AddDoorToBadge(Badge badgeToAddTo)
         {
-            Console.WriteLine("Which door would you like to add?");
+            Console.Write("Which door would you like to add? ");
             string doorToAdd = Console.ReadLine();
 
             badgeToAddTo.AddDoor(doorToAdd);

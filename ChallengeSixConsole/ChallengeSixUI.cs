@@ -64,7 +64,7 @@ namespace ChallengeSixConsole
         {
             Console.Clear();
 
-            Console.WriteLine("Enter the name of the car you wish to update:");
+            Console.Write("Enter the name of the car you wish to update: ");
             string name = Console.ReadLine();
 
             ICar carToUpdate = _carRepo.GetCarByName(name);
@@ -193,7 +193,7 @@ namespace ChallengeSixConsole
                 }
                 else
                 {
-                    Console.WriteLine("/nPlease enter a valid number.\n");
+                    Console.WriteLine("\nPlease enter a valid number.\n");
                     continueAsking = true;
                 }
 
@@ -322,18 +322,18 @@ namespace ChallengeSixConsole
 
             if (isUpdating == false)
             {
-                Console.WriteLine("\nEnter the name of the car:");
+                Console.Write("\nEnter the name of the car: ");
                 newGasCar.Name = Console.ReadLine();
             }
-            Console.WriteLine("\nEnter the weight of the car (in whole number lbs.):");
+            Console.Write("\nEnter the weight of the car (in whole number lbs.): ");
             newGasCar.Weight = int.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter the top speed of the car:");
+            Console.Write("\nEnter the top speed of the car (MPH): ");
             newGasCar.TopSpeed = double.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter the MPG in the country of the car:");
+            Console.Write("\nEnter the MPG in the country of the car: ");
             newGasCar.MPGCountry = double.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter the MPG on the highway of the car:");
+            Console.Write("\nEnter the MPG on the highway of the car: ");
             newGasCar.MPGHighway = double.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter the tank capacity of the car:");
+            Console.Write("\nEnter the tank capacity of the car (whole number gallons): ");
             newGasCar.TankCapacity = int.Parse(Console.ReadLine());
 
             return newGasCar;
@@ -345,20 +345,20 @@ namespace ChallengeSixConsole
 
             if (isUpdating == false)
             {
-                Console.WriteLine("\nEnter the name of the car:");
+                Console.Write("\nEnter the name of the car: ");
                 newHybridCar.Name = Console.ReadLine();
             }
-            Console.WriteLine("\nEnter the weight of the car (in whole number lbs.):");
+            Console.Write("\nEnter the weight of the car (in whole number lbs.): ");
             newHybridCar.Weight = int.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter the top speed of the car:");
+            Console.Write("\nEnter the top speed of the car (MPH): ");
             newHybridCar.TopSpeed = double.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter the MPG in the country of the car:");
+            Console.Write("\nEnter the MPG in the country of the car: ");
             newHybridCar.MPGCountry = double.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter the MPG on the highway of the car:");
+            Console.Write("\nEnter the MPG on the highway of the car: ");
             newHybridCar.MPGHighway = double.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter the tank capacity of the car:");
+            Console.Write("\nEnter the tank capacity of the car (whole number gallons): ");
             newHybridCar.TankCapacity = int.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter the battery capacity of the car (in kWh):");
+            Console.Write("\nEnter the battery capacity of the car (in kWh): ");
             newHybridCar.BatteryCapacity = double.Parse(Console.ReadLine());
 
             return newHybridCar;
@@ -370,18 +370,18 @@ namespace ChallengeSixConsole
 
             if (isUpdating == false)
             {
-                Console.WriteLine("\nEnter the name of the car:");
+                Console.Write("\nEnter the name of the car: ");
                 newElectricCar.Name = Console.ReadLine();
             }
-            Console.WriteLine("\nEnter the weight of the car (in whole number lbs.):");
+            Console.Write("\nEnter the weight of the car (in whole number lbs.): ");
             newElectricCar.Weight = int.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter the top speed of the car:");
+            Console.Write("\nEnter the top speed of the car (MPH): ");
             newElectricCar.TopSpeed = double.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter the MPB (miles per full battery charge) in the country of the car:");
+            Console.Write("\nEnter the MPB (miles per full battery charge) in the country of the car: ");
             newElectricCar.MPBCountry = double.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter the MPB (miles per full battery charge) on the highway of the car:");
+            Console.Write("\nEnter the MPB (miles per full battery charge) on the highway of the car: ");
             newElectricCar.MPBHighway = double.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter the battery capacity of the car (in kWh):");
+            Console.Write("\nEnter the battery capacity of the car (in kWh): ");
             newElectricCar.BatteryCapacity = double.Parse(Console.ReadLine());
 
             return newElectricCar;

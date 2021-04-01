@@ -41,9 +41,10 @@ namespace ChallengeThreeReposotiry
                 {
                     badgeToReturn.BadgeID = badge.Key;
                     badgeToReturn.DoorNames = badge.Value;
+                    return badgeToReturn;
                 }
             }
-            return badgeToReturn;
+            return null;
         }
 
         //Update
@@ -53,7 +54,6 @@ namespace ChallengeThreeReposotiry
 
             if (oldBadge != null)
             {
-                oldBadge.BadgeID = newBadge.BadgeID;
                 oldBadge.DoorNames = newBadge.DoorNames;
                 return true;
             }

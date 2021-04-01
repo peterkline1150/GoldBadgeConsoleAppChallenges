@@ -165,11 +165,11 @@ namespace ChallengeFourConsole
                 }
             } while (continueAsking);
 
-            Console.WriteLine("How many people attended the event?\n");
+            Console.Write("How many people attended the event? ");
             newOuting.NumberOfPeople = int.Parse(Console.ReadLine());
-            Console.WriteLine("What was the date of the event? (m/d/yy)");
+            Console.Write("What was the date of the event? (m/d/yy) ");
             newOuting.Date = DateTime.Parse(Console.ReadLine());
-            Console.WriteLine("What was the total cost per person?\n");
+            Console.Write("What was the total cost per person? $");
             newOuting.TotalCostPerPerson = double.Parse(Console.ReadLine());
 
             if (_outingRepo.CreateOuting(newOuting))

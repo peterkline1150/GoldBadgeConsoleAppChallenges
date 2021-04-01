@@ -83,21 +83,21 @@ namespace GoldBadgeConsoleAppChallenges
             Console.Clear();
 
             Menu itemToAdd = new Menu();
-            Console.WriteLine("Enter the name of the dish:\n");
+            Console.Write("Enter the name of the dish: ");
             itemToAdd.MealName = Console.ReadLine();
-            Console.WriteLine("\nEnter the menu number of the dish:\n");
+            Console.Write("\nEnter the menu number of the dish: ");
             itemToAdd.MealNumber = int.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter a description of the dish:\n");
+            Console.Write("\nEnter a description of the dish: ");
             itemToAdd.Description = Console.ReadLine();
-            Console.WriteLine("\nEnter the price of the dish (in dollars):\n");
+            Console.Write("\nEnter the price of the dish: $");
             itemToAdd.Price = double.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter the number of ingredients you wish to add:\n");
+            Console.Write("\nEnter the number of ingredients you wish to add: ");
             int numIngredients = int.Parse(Console.ReadLine());
             int count = 0;
             for (int i = 0; i < numIngredients; i++)
             {
                 count++;
-                Console.WriteLine($"\nPlease enter ingredient #{count}:\n");
+                Console.Write($"\nPlease enter ingredient #{count}: ");
                 itemToAdd.AddIngredientsToList(Console.ReadLine());
             }
 
