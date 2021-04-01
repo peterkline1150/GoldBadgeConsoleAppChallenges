@@ -9,7 +9,6 @@ namespace GoldBadgeConsoleAppChallenges
     public class ChallengeOneUI
     {
         private readonly MenuRepository _menuRepo = new MenuRepository();
-
         public void Run()
         {
             SeedMenuItems();
@@ -68,11 +67,11 @@ namespace GoldBadgeConsoleAppChallenges
                 Console.WriteLine($"Meal Number: {item.MealNumber}\n"+
                     $"Name: {item.MealName}\n" +
                     $"Description: {item.Description}\n" +
-                    $"Price: ${item.Price}\n" +
+                    $"Price: ${item.Price:0.00}\n" +
                     "Ingredients in menu item:\n");
                 foreach (string ingredient in item.Ingredients)
                 {
-                    Console.WriteLine($"{ingredient}\n");
+                    Console.WriteLine($"{ingredient}");
                 }
                 Console.WriteLine("\n");
             }
@@ -90,8 +89,8 @@ namespace GoldBadgeConsoleAppChallenges
             itemToAdd.MealNumber = int.Parse(Console.ReadLine());
             Console.WriteLine("\nEnter a description of the dish:\n");
             itemToAdd.Description = Console.ReadLine();
-            Console.WriteLine("\nEnter the price of the dish:\n");
-            itemToAdd.Price = int.Parse(Console.ReadLine());
+            Console.WriteLine("\nEnter the price of the dish (in dollars):\n");
+            itemToAdd.Price = double.Parse(Console.ReadLine());
             Console.WriteLine("\nEnter the number of ingredients you wish to add:\n");
             int numIngredients = int.Parse(Console.ReadLine());
             int count = 0;
@@ -104,7 +103,7 @@ namespace GoldBadgeConsoleAppChallenges
 
             _menuRepo.AddMenuItem(itemToAdd);
 
-            Console.WriteLine($"\n {itemToAdd.MealName} has been successfully added to the menu.\n");
+            Console.WriteLine($"\n\n{itemToAdd.MealName} has been successfully added to the menu.\n");
             PressAnyKey();
         }
         private void DeleteMenuItem()
@@ -122,15 +121,23 @@ namespace GoldBadgeConsoleAppChallenges
             }
 
             int targetItemIndex = int.Parse(Console.ReadLine()) - 1;
-            Menu itemToDelete = listOfItems[targetItemIndex];
 
-            if (_menuRepo.DeleteMenuItem(itemToDelete))
+            if (targetItemIndex >= 0 && targetItemIndex < listOfItems.Count)
             {
-                Console.WriteLine($"{itemToDelete.MealName} was successfully removed.\n");
+                Menu itemToDelete = listOfItems[targetItemIndex];
+
+                if (_menuRepo.DeleteMenuItem(itemToDelete))
+                {
+                    Console.WriteLine($"{itemToDelete.MealName} was successfully removed.\n");
+                }
+                else
+                {
+                    Console.WriteLine("Something went wrong. Please try again.\n");
+                }
             }
             else
             {
-                Console.WriteLine("Something went wrong. Please try again.\n");
+                Console.WriteLine("Invalid number.\n");
             }
             PressAnyKey();
         }

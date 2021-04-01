@@ -73,6 +73,7 @@ namespace ChallengeSixConsole
             {
                 carToUpdate = GasCarSetup(true);
                 GasCar gasCarToUpdate = (GasCar)Convert.ChangeType(carToUpdate, typeof(GasCar));
+                gasCarToUpdate.Name = name;
                 if (_carRepo.UpdateGasCar(name, gasCarToUpdate))
                 {
                     Console.WriteLine("Car updated successfully.\n");
@@ -86,6 +87,7 @@ namespace ChallengeSixConsole
             {
                 carToUpdate = HybridCarSetup(true);
                 HybridCar hybridCarToUpdate = (HybridCar)Convert.ChangeType(carToUpdate, typeof(HybridCar));
+                hybridCarToUpdate.Name = name;
                 if (_carRepo.UpdateHybridCar(name, hybridCarToUpdate))
                 {
                     Console.WriteLine("Car updated successfully.\n");
@@ -99,6 +101,7 @@ namespace ChallengeSixConsole
             {
                 carToUpdate = ElectricCarSetup(true);
                 ElectricCar electricCarToUpdate = (ElectricCar)Convert.ChangeType(carToUpdate, typeof(ElectricCar));
+                electricCarToUpdate.Name = name;
                 if (_carRepo.UpdateElectricCar(name, electricCarToUpdate))
                 {
                     Console.WriteLine("Car updated successfully.\n");
@@ -138,9 +141,11 @@ namespace ChallengeSixConsole
         {
             Console.Clear();
 
-            bool continueAsking = false;
+            bool continueAsking;
             do
             {
+                continueAsking = false;
+
                 Console.WriteLine("Which type of car do you want to add?\n" +
                     "1. Gas\n" +
                     "2. Hybrid\n" +
@@ -220,9 +225,11 @@ namespace ChallengeSixConsole
         {
             Console.Clear();
 
-            bool continueAsking = false;
+            bool continueAsking;
             do
             {
+                continueAsking = false;
+
                 Console.WriteLine("Which type of car do you want to view?\n" +
                         "1. Gas\n" +
                         "2. Hybrid\n" +

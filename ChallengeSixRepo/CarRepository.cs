@@ -101,6 +101,7 @@ namespace ChallengeSixRepo
             if (oldCar != null && oldCar is GasCar)
             {
                 GasCar oldGasCar = (GasCar)Convert.ChangeType(oldCar, typeof(GasCar));
+                oldGasCar.Name = newCar.Name;
                 oldGasCar.Weight = newCar.Weight;
                 oldGasCar.TopSpeed = newCar.TopSpeed;
                 oldGasCar.MPGCountry = newCar.MPGCountry;

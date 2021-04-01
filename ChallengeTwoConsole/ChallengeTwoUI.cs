@@ -62,25 +62,27 @@ namespace ChallengeTwoConsole
 
             Queue<Claim> queueOfClaims = _claimRepo.ReadClaims();
 
-            Console.WriteLine(string.Format("{0,-10}{1,-10}{2,-25}{3,-10}{4,-20}{5,-20}",
+            Console.WriteLine(string.Format("{0,-10}{1,-10}{2,-25}{3,-10}{4,-20}{5,-20}{6,-20}",
                 "CaimID",
                 "Type",
                 "Description",
                 "Amount",
                 "DateOfAccident",
-                "DateOfClaim"));
+                "DateOfClaim",
+                "IsValid"));
 
             Console.WriteLine("\n");
 
             foreach (Claim claim in queueOfClaims)
             {
-                Console.WriteLine(string.Format("{0,-10}{1,-10}{2,-25}{3,-10}{4,-20}{5,-20}",
+                Console.WriteLine(string.Format("{0,-10}{1,-10}{2,-25}{3,-10}{4,-20}{5,-20}{6,-20}",
                     $"{claim.ClaimID}",
                     $"{claim.ClaimType}",
                     $"{claim.Description}",
                     $"${claim.ClaimAmount:0.00}",
                     $"{claim.DateOfIncident:M/d/yy}",
-                    $"{claim.DateOfClaim:M/d/yy}"));
+                    $"{claim.DateOfClaim:M/d/yy}",
+                    $"{claim.IsValid}"));
             }
 
             PressAnyKey();

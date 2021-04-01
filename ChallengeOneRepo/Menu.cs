@@ -12,7 +12,7 @@ namespace GoldBadgeConsoleAppChallenges
         public string MealName { get; set; }
         public string Description { get; set; }
         public List<string> Ingredients { get; set; } = new List<string>();
-        public int Price { get; set; }
+        public double Price { get; set; }
         public Menu()
         {
 

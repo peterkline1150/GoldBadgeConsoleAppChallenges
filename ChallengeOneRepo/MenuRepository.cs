@@ -8,17 +8,17 @@ namespace GoldBadgeConsoleAppChallenges
 {
     public class MenuRepository
     {
-        List<Menu> _menuRepo = new List<Menu>();
+        List<Menu> _menuDirectory = new List<Menu>();
 
         //CRUD - Create, Read, Update, Delete
 
         //Create
         public bool AddMenuItem(Menu menuItem)
         {
-            int count = _menuRepo.Count;
-            _menuRepo.Add(menuItem);
+            int count = _menuDirectory.Count;
+            _menuDirectory.Add(menuItem);
 
-            if (count < _menuRepo.Count)
+            if (count < _menuDirectory.Count)
             {
                 return true;
             }
@@ -28,7 +28,7 @@ namespace GoldBadgeConsoleAppChallenges
         //Read
         public List<Menu> ReadMenuItems()
         {
-            return _menuRepo;
+            return _menuDirectory;
         }
 
         //Update - not necessary based on prompt
@@ -36,10 +36,10 @@ namespace GoldBadgeConsoleAppChallenges
         //Delete
         public bool DeleteMenuItem(Menu menuItem)
         {
-            int count = _menuRepo.Count;
-            _menuRepo.Remove(menuItem);
+            int count = _menuDirectory.Count;
+            _menuDirectory.Remove(menuItem);
 
-            if (count > _menuRepo.Count)
+            if (count > _menuDirectory.Count)
             {
                 return true;
             }

@@ -60,14 +60,14 @@ namespace ChallengeFiveConsole
         {
             Console.Clear();
 
-            Console.WriteLine("\nEnter the First Name of the customer you want to delete:");
+            Console.WriteLine("Enter the First Name of the customer you want to delete:");
             string firstName = Console.ReadLine();
             Console.WriteLine("\nEnter the Last Name of the customer you want to delete:");
             string lastName = Console.ReadLine();
 
             Customer customerToDelete = _customerRepo.ReadCustomerByFirstAndLastName(firstName, lastName);
 
-            if(_customerRepo.DeleteCustomer(customerToDelete))
+            if (_customerRepo.DeleteCustomer(customerToDelete))
             {
                 Console.WriteLine("Customer removed successfully.\n");
             }
@@ -83,20 +83,24 @@ namespace ChallengeFiveConsole
             Console.Clear();
 
             Customer customerToUpdate = new Customer();
-            Console.WriteLine("\nEnter the First Name of the customer you want to update:");
+            Console.WriteLine("Enter the First Name of the customer you want to update:");
             customerToUpdate.FirstName = Console.ReadLine();
             Console.WriteLine("\nEnter the Last Name of the customer you want to update:");
             customerToUpdate.LastName = Console.ReadLine();
 
-            Console.WriteLine("\nChoose the customer's updated type:\n" +
-                "1. Potential customer\n" +
-                "2. Current customer\n" +
-                "3. Past customer");
-
-            string choice = Console.ReadLine();
-            bool keepAsking = false;
+            bool keepAsking;
             do
             {
+                keepAsking = false;
+
+                //Originally allowed to update name, but your name doesn't change. That seemed redundant, so I took it out.
+                Console.WriteLine("\nChoose the customer's updated type:\n" +
+                    "1. Potential customer\n" +
+                    "2. Current customer\n" +
+                    "3. Past customer");
+
+                string choice = Console.ReadLine();
+
                 switch (choice)
                 {
                     case "1":
@@ -155,7 +159,7 @@ namespace ChallengeFiveConsole
             Console.Clear();
             Customer newCustomer = AskAboutCustomer();
 
-            if(_customerRepo.CreateCustomer(newCustomer))
+            if (_customerRepo.CreateCustomer(newCustomer))
             {
                 Console.WriteLine("Customer created successfully.\n");
             }
@@ -170,19 +174,23 @@ namespace ChallengeFiveConsole
         {
             Customer newCustomer = new Customer();
 
-            Console.WriteLine("\nEnter the customer's First Name:");
+            Console.WriteLine("Enter the customer's First Name:");
             newCustomer.FirstName = Console.ReadLine();
             Console.WriteLine("\nEnter the customer's Last Name:");
             newCustomer.LastName = Console.ReadLine();
-            Console.WriteLine("\nChoose the customer type:\n" +
+
+            bool keepAsking;
+            do
+            {
+                keepAsking = false;
+
+                Console.WriteLine("\nChoose the customer type:\n" +
                 "1. Potential customer\n" +
                 "2. Current customer\n" +
                 "3. Past customer");
 
-            string choice = Console.ReadLine();
-            bool keepAsking = false;
-            do
-            {
+                string choice = Console.ReadLine();
+
                 switch (choice)
                 {
                     case "1":

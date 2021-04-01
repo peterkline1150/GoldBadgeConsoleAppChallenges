@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Challenge1UnitTest
 {
     [TestClass]
-    public class TestsForChallenge1
+    public class TestsForChallengeOne
     {
         //AAA - Assemble, Act, Assert
 

@@ -10,7 +10,7 @@ namespace ChallengeThreeConsole
 {
     public class ChallengeThreeUI
     {
-        BadgeRepository _badgeRepo = new BadgeRepository();
+        private readonly BadgeRepository _badgeRepo = new BadgeRepository();
         public void Run()
         {
             SeedBadges();
@@ -142,7 +142,7 @@ namespace ChallengeThreeConsole
                     case "y":
                         break;
                     case "n":
-                        Console.WriteLine("Returning to maim menu.\n");
+                        Console.WriteLine("Returning to main menu.\n");
                         continueAddingDoors = false;
                         break;
                     default:
