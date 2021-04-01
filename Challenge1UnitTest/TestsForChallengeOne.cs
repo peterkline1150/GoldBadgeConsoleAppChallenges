@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 
-namespace Challenge1UnitTest
+namespace ChallengeOneUnitTest
 {
     [TestClass]
     public class TestsForChallengeOne
