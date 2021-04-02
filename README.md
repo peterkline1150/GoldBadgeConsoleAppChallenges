@@ -4,13 +4,13 @@ This is my GitHub Repository for my Gold Badge Challenges. I completed everythin
 
 The projects that I completed are as follows:
 
-1. Cafe
-2. Claims
-3. Badges
-4. Company Outings
-5. Greeting
-6. Green Plan
-7. Barbecue
+1. Cafe - Includes Menu class and Menu Repository, Unit Test for all Repository methods, and a console UI. The console allows the user to view the entire menu, add an item to the menu, and delete an item from the menu.
+2. Claims - Includes a Claim class and a Claim Repository, Unit Test for all Repository methods, and a console UI. The console allows the user to view all claims, take care of the next claim in the queue, and enter a new claim into the queue.
+3. Badges - Includes a Badge class and a Badge Repository, Unit test for all Repository methods, and a console UI. The console allows the user to add a new badge, edit an existing badge, list all current badges, remove a badge, and remove all doors from a certain badge.
+4. Company Outings - Includes an Outing class, Outing Repository, and a console UI. The console allows the user to display a list of all outings, add an outing, view the cost of all outings combined, and view the cost of certain outings by type.
+5. Greeting - Includes a Customer class, Customer Repository, and a console UI. The console allows the user to add a customer, show a list of all customers alphabetically (including a special email based on their details), update the details of a customer, and delete a customer.
+6. Green Plan - Includes a Gas Car, Hybrid Car, and Electric Car class, along with corresponding interfaces. Also includes a Car Repository and a console UI. The console allows the user to add a specific car to the directory, view all cars of all types in the directory, view certain cars based on type in the directory, update a specific car in the directory, and delete a specific car in the directory.
+7. Barbecue - Includes a Party class and Party repository. Includes two other classes (BurgerBooth and TreatBooth) which are used as properties of the Party class. This challenge also includes a console UI that allows the user to view a list of all parties, add a party (and show relevant data about the party and its cost), and delete a party.
 
 # Extra Notes
 
