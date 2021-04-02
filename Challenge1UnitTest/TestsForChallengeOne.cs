@@ -8,7 +8,7 @@ namespace ChallengeOneUnitTest
     [TestClass]
     public class TestsForChallengeOne
     {
-        //AAA - Assemble, Act, Assert
+        //AAA - Arrange, Act, Assert
 
         //Arrange
         Menu menuItem = new Menu();
@@ -28,9 +28,9 @@ namespace ChallengeOneUnitTest
         {
             //Arrange
             _menuRepository.AddMenuItem(menuItem);
-            List<Menu> listOfMenuItems = _menuRepository.ReadMenuItems();
 
             //Act
+            List<Menu> listOfMenuItems = _menuRepository.ReadMenuItems();
             bool directoryHasMenuItems = listOfMenuItems.Contains(menuItem);
 
             //Assert
